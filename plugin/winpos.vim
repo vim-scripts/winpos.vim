@@ -4,7 +4,9 @@
 " <S-F1> <S-F2> <S-F3> <S-F4>    = save window positions.
 " <F1> <F2> <F3> <F4>            = recall window positions.
 "
-" 02/01/04
+" 02/01/04: 1.0 - initial release
+" 03/07/04: 1.1 - add mappings for insert mode
+"                 also map <S-F13> - <S-F16> (for linux)
 
 
 let s:c = &cpoptions
@@ -50,15 +52,31 @@ function! SetWinPos4()
    exec ':winpos ' . g:winpos_x4 . ' ' . g:winpos_y4
 endfunction
 
-nnoremap <S-F1> :silent! call SaveWinPos1()<CR>
-nnoremap <S-F2> :silent! call SaveWinPos2()<CR>
-nnoremap <S-F3> :silent! call SaveWinPos3()<CR>
-nnoremap <S-F4> :silent! call SaveWinPos4()<CR>
+nnoremap <S-F1> :call SaveWinPos1()<CR>
+nnoremap <S-F2> :call SaveWinPos2()<CR>
+nnoremap <S-F3> :call SaveWinPos3()<CR>
+nnoremap <S-F4> :call SaveWinPos4()<CR>
+inoremap <S-F1> <C-O>:call SaveWinPos1()<CR>
+inoremap <S-F2> <C-O>:call SaveWinPos2()<CR>
+inoremap <S-F3> <C-O>:call SaveWinPos3()<CR>
+inoremap <S-F4> <C-O>:call SaveWinPos4()<CR>
+nnoremap <S-F13> :call SaveWinPos1()<CR>
+nnoremap <S-F14> :call SaveWinPos2()<CR>
+nnoremap <S-F15> :call SaveWinPos3()<CR>
+nnoremap <S-F16> :call SaveWinPos4()<CR>
+inoremap <S-F13> <C-O>:call SaveWinPos1()<CR>
+inoremap <S-F14> <C-O>:call SaveWinPos2()<CR>
+inoremap <S-F15> <C-O>:call SaveWinPos3()<CR>
+inoremap <S-F16> <C-O>:call SaveWinPos4()<CR>
 
-nnoremap <F1> :silent! call SetWinPos1()<CR>
-nnoremap <F2> :silent! call SetWinPos2()<CR>
-nnoremap <F3> :silent! call SetWinPos3()<CR>
-nnoremap <F4> :silent! call SetWinPos4()<CR>
+nnoremap <F1> :call SetWinPos1()<CR>
+nnoremap <F2> :call SetWinPos2()<CR>
+nnoremap <F3> :call SetWinPos3()<CR>
+nnoremap <F4> :call SetWinPos4()<CR>
+inoremap <F1> <C-O>:call SetWinPos1()<CR>
+inoremap <F2> <C-O>:call SetWinPos2()<CR>
+inoremap <F3> <C-O>:call SetWinPos3()<CR>
+inoremap <F4> <C-O>:call SetWinPos4()<CR>
 
 let &cpoptions = s:c
 unlet s:c
