@@ -1,0 +1,6 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=892
+
+Save / restore GVIM window positions quickly through function keys.
+
+Shift + F1/F2/F3/F4 to save window position, F1/F2/F3/F4 to restore.
+Edit script to set default positions.
